@@ -15,7 +15,7 @@ class DashboardController extends AbstractDashboardController
     /**
      * @Route("/admin/login", name="login_admin")
      */
-    public function login(AuthenticationUtils $authenticationUtils)
+    public function login(AuthenticationUtils $authenticationUtils): Response
     {
         //if ($this->getUser()) {
         //    return $this->redirectToRoute('easyadmin');
@@ -54,7 +54,7 @@ class DashboardController extends AbstractDashboardController
     /**
      * @Route("/admin/logout", name="logout")
      */
-    public function logout()
+    public function logout(): void
     {
         throw new Exception('This method can be blank - it will be intercepted by the logout key on your firewall');
     }

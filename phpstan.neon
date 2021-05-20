@@ -1,0 +1,19 @@
+includes:
+    - vendor/phpstan/phpstan-doctrine/extension.neon
+    - vendor/phpstan/phpstan-doctrine/rules.neon
+    - vendor/phpstan/phpstan-symfony/extension.neon
+
+parameters:
+    level: 6
+    customRulesetUsed: true
+    symfony:
+        container_xml_path: var/cache/dev/App_KernelDevDebugContainer.xml
+    checkGenericClassInNonGenericObjectType: false
+    excludes_analyse:
+        - bin/*
+        - var/*
+        - public/*
+        - config/*
+        - vendor/*
+        - tests/*
+        - php_cs.php

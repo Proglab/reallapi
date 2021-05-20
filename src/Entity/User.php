@@ -36,9 +36,9 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="json")
      *
-     * @var array
+     * @var string[]
      */
-    private $roles = [];
+    private array $roles = [];
 
     public function getId(): ?int
     {
@@ -93,6 +93,11 @@ class User implements UserInterface
         return array_unique($roles);
     }
 
+    /**
+     * @param string[] $roles
+     *
+     * @return $this
+     */
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
