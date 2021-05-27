@@ -70,7 +70,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Reallapi');
+            ->setTitle('Reall api');
     }
 
     public function configureMenuItems(): iterable

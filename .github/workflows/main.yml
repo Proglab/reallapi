@@ -61,10 +61,10 @@ jobs:
           # Memory limit for analysis
           memory_limit: 0
 
-      - name: PHPCS
-        # You may pin to the exact commit or the version.
-        # uses: php-actions/phpstan@e1ce60d6e66d508e78ddeefac1ec81570b8ef27d
-        run:  ./vendor/bin/phpcs -v
+      - name: PHPCS check
+        uses: chekalsky/phpcs-action@v1
+        with:
+          enable_warnings: true
 
       - name: Start mysql service
         run: sudo /etc/init.d/mysql start

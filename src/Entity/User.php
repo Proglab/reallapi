@@ -40,6 +40,11 @@ class User implements UserInterface
      */
     private array $roles = [];
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $email;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -53,7 +58,7 @@ class User implements UserInterface
     public function setUsername(string $username): self
     {
         $this->username = $username;
-
+        $this->setEmail($username);
         return $this;
     }
 
@@ -120,8 +125,20 @@ class User implements UserInterface
      */
     public function eraseCredentials(): self
     {
-        // If you store any temporary, sensitive data on the user, clear it here
         $this->plainPassword = null;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+        $this->setUsername($email);
 
         return $this;
     }
